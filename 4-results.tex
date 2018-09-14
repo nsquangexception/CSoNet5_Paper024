@@ -1,0 +1,171 @@
+\section{Experimental Results}
+
+\subsection{Dataset}
+
+% Mo ta chung ve cac dataset se su dung trong thi nghiem
+% In this study, we use two datasets, which are ...
+% The first ...
+% The second ...
+In this study, we used two datasets for sentiment classification, one is Vietnamese and the other is English. 
+The English one has been used by Chen et al.~\cite{chen-ma-liu:2015:ACL-IJCNLP} for lifelong learning, in which there are 20,000 product reviews from Amazon divided into 20 domains.
+The Vietnamese dataset was also crawled from an e-commerce website, Tiki.vn . %, with consumer reviews on 17 products. 
+The two datasets can contribute great values to different tasks of cross-domain sentiment analysis on both languages. 
+%total number of reviews, all contain Vietnamese tone marks, do not use emoticons included
+% Data for this study were retrospectively collected from ...
+% The small size of the dataset meant that it was not possible to ...
+
+\textbf{Labeled Vietnamese reviews} For this study, we crawled the reviews from Tiki.vn, which is a large e-commerce website with quality reviews from the customers.
+It is a large corpus of 17 diverse domains or products and a total of 15,394 product reviews, but we selected a group of 10 with a fair amount of negative reviews for experiments (including 13,652 reviews), which we name ``A Community Resource for sentiment analysis on Vietnamese'' (CRSAVi).
+This selection not only helped reduce the imbalanced distribution, but also committed enough lexical resources for creating a classifier.
+We followed the previous works~\cite{blitzer-dredze-pereira:2007:ACLMain,pang-lee-vaithyanathan:2002:EMNLP02} to treat reviews with more than 3 star as positive reviews, equal to 3 star as neutral and fewer than 3 star as negative ones.
+The number of positive, neutral and negative reviews are shown as in the table~\ref{table:Table CRSAVi}:
+
+\begin{table}[htb]
+\centering
+\caption{Names of 10 domains and the number of positive, neutral and negative reviews}
+\begin{tabular}{|L{5cm}|R{1.5cm}|R{1.5cm}|R{1.5cm}|}%R{1cm}|R{1cm}|}
+	\hline
+	\textbf{Product} &  \textbf{Positive} & \textbf{Neutral} & \textbf{Negative}  \\
+	\hline
+	TrangDiem(Cosmetics) &	3,629&	792&	154\\
+	Dungcuhocsinh(Tools for students) &	1,803&	164&	37\\
+	Sanphamvegiay(Papers) &	1,778&	144&	34\\
+	Butviet(Pens and pencils) &	1,044&	125&	28\\		
+	Dodungnhabep(Kitchen) &	987 &	100&	24\\		
+	DauGoi(Shampoo) &	347 &	59&	18\\
+	Tainghe(Headphones) &	698&	90&	18\\
+	DoDungChoBe(Baby)	&658	&61	&14\\
+	Filehosobiahoso(Files)	&157	&47	&14\\
+	Phukiendienthoaimaytinhbang(Accessories)	&583	&32	&13\\
+%	Nuochoa(Perfume)	&207	&21	&10\\
+%	Thietbilamdep(Beauty equipment)	&127	&16	&8\\
+%	Butxoaxoakeo(Eraser)	&311	&43	&7\\
+%	Mayxaymayep(Grinders)	&395	&38	&7\\
+%	Binhdunsieutoc(Kettle)	 &107	&13	&5\\
+%	Dungcuanuong(Dining substances)	&114	&19	&5\\
+%	TranhDongHo(Dong Ho paintings)	&274	&10	&5\\
+	\hline
+	Total (13,652 reviews) & 11,684 &	1,614 &	354	 \\
+	\hline
+\end{tabular}
+
+\label{table:Table CRSAVi}
+\end{table}
+
+It is noted that the all product reviews from Tiki was checked by the website administrators before publishing, which helps guarantee low rate of low quality reviews from online users.
+In fact, all of them contain Vietnamese tone marks, some contain emoticons. 
+%However, for this study, we do not use the emoticons included, only the unigrams and bigrams are used.
+On our dataset, the average unigram per document on each domain varies from 66 to just above 75 unigrams.
+The information packed in a single review in our dataset consists of the product name, author name, rating, headline, bought-already, time of review and details.
+From the table~\ref{table:Table CRSAVi}, it can be seen that the proportion of negative class among the dataset is only around 2.6\%.
+%Compared to some other datasets for cross-domain sentiment classification, ours express the real life situation where the number of reviews among domains are quite variant.
+As that being said, to experiment lifelong learning, a mass of reviews among multiple product types are required, although there is no Vietnamese sentiment dataset that can meet the requirements.
+Although different types of products are crawled for the task and Tiki has a great deal of book reviews, CRSAVi does not include books because most of the book reviews mention the book content, not the overall quality like other products.
+
+%how we pick a group for experiments
+Because the difference between the number of reviews across domains might result in the efficiency of the system, for each experiment, we selected randomly a maximum amount of 100 reviews each class on each domain to conduct the experiments. 
+%This selection also reduce the imbalanced distribution between positive and negative classes in each domain. 
+%From the total of 17 domains, to have a reasonable distribution of negative class on each set, we selected a group of 10 domains which have the most negative reviews.
+%This group contains products which have equally and more than 13 negative reviews. 
+
+%For this study, we experimented on both groups, which would show different results due to the distribution and number of reviews across products.
+
+\textbf{Labeled English reviews} The corpus from Chen et al.~\cite{chen-ma-liu:2015:ACL-IJCNLP} was utilized to compare directly to their lifelong learning approach in English sentiment classification.
+The corpus contains reviews of 20 different products crawled from Amazon.
+The experiments were on a dataset which has a reasonable proportion of negative reviews across domains, varies from 11.97 to 30.51\% .
+
+\subsection{Evaluation Metrics}
+
+The evaluation method used is 5-fold cross validation.
+While dividing a domain into groups, we tried to keep the class distribution to avoid the case of no negative review on a segment due to the small proportion of negative class mentioned above.
+F1-measure on negative and positive class in types of Micro-average and Macro-average are applied.
+%For Vietnamese dataset, we compare the macro-average and micro-average of F1-score on negative class because the imbalanced distribution makes it harder to classify. 
+
+\subsection{Baseline}
+
+Our method is compared to VietSentiWordnet by Vu et al~\cite{vu2014building}.
+The approach uses a dictionary which contains a list of segmented words or phrases in Vietnamese that express sentiment.
+For each word or phrase, the dictionary provides corresponding positive and negative score.
+For each document, the score is evaluated by summing up all (positive score - negative score) of all sentiment words or phrases that are available in the dictionary.
+if the score is positive, the document is labeled as positive and vice versa.
+It is noted that VietSentiWordnet can only work on a single domain data.
+
+In English, we compare our proposed method to Chen et al.~\cite{chen-ma-liu:2015:ACL-IJCNLP} to illustrate the benefits of our approach on lifelong learning.
+
+\subsection{Bigram feature improves the classification on English dataset}
+We compare our result to the original lifelong learning approach of Chen et al.~\cite{chen-ma-liu:2015:ACL-IJCNLP}(LSC) on the balanced class distribution.
+We created a balance dataset of 200 reviews (100 positive and 100 negative) in each domain dataset for this experiment.
+On balanced class distribution, how the accuracy is improved is expressed as in table~\ref{table:Table en balanced}
+\begin{table}[htb]
+\centering
+\caption{Accuracies on English balanced distribution over 20 domains}
+\begin{tabular}{|C{3cm}|C{3cm}|C{3cm}|}
+	\hline
+	\textbf{LSC}  & \textbf{LSC-bag-of-bigram} & \textbf{LSC-bigram}\\
+	\hline
+	83.34 & \textbf{85.92} & 85.44 \\
+	\hline
+\end{tabular}
+
+\label{table:Table en balanced}
+\end{table}
+
+Our method exceeds LSC to get to a high of 85.92\%.
+This improvement confirms the results of Wang et al.~\cite{wang-manning:2012:ACL2012short} and proves that the use of bigram and bag-of-bigram features also improve the performance on cross-domain sentiment classification.
+
+\subsection{Vietnamese cross-domain sentiment classification}
+We compare our proposed method in different settings to the baseline method on the Vietnamese dataset. 
+The average F1-score for the positive class is not shown because being the majority class makes the classifiers perform well and do not show much difference between multiple settings, although they all perform better than VietSentiWordnet.
+%In this group, we first 
+Table~\ref{table:Table vi VSenti vs uni} compares VietSentiWordnet(VSWN) to our proposed method (lifelong learning for Vietnamese sentiment classification-now called LLVi) using unigram feature with segmentation (LLVi-
+uni) and without segmentation (LLVi-uniWS). 
+
+The LLVi with unigram feature (no segmentation) which also counts emoticons (LLVi-e) is also compared.
+\begin{table}[htb]
+	\centering
+\caption{Macro,micro average F1-score of the negative class on CRSAVi}
+	\begin{tabular}{|R{1.5cm}|R{1.6cm}|R{1.6cm}|R{1.6cm}|R{2.1cm}|}
+		\hline
+		{}&\textbf{VSWN} & \textbf{LLVi-uni} & \textbf{LLVi-e} & \textbf{LLVi-uniWS}\\
+		\hline
+		Macro F1 & 33.21 & 47.19 & \textbf{51.20} & 50.87\\
+		\hline
+		Micro F1 & 40.85 & 61.33 & \textbf{62.12} & 61.93 \\
+		\hline
+	\end{tabular}
+
+\label{table:Table vi VSenti vs uni}
+\end{table}
+
+The table~\ref{table:Table vi VSenti vs uni} has obviously shown that while segmentation task helps improving the performance on lifelong learning with unigram feature.
+For example, the word ``tuy\_nhiên'' (however) can classify well in our dataset, but cannot be leveraged effectively without segmentation.
+%The emoticons also play a huge role in sentiment classification whereas they improves the performance slightly.
+However, lifelong learning with emoticons still performs slightly better.
+The two emoticons ``:('' and ``:)'' provides significantly biased probability thus become good classifiers.
+The table~\ref{table:Table vi VSenti vs uni} also confirms that the lifelong learning approach has a huge advantage over VietSentiWordnet, which can only work on the target domain.
+
+%uni vs bi vs bob ||h uniws vs bi ws vs bobws
+Table~\ref{table:Table vi bibob} compares the performance is a collection of lifelong learning approaches with different features applied. 
+The group includes LLVi-uni, LLVi with bigram feature (LLVi-bi), LLVi with bag-of-bigram feature (LLVi-bb) in two settings, segmentation and without segmentation.
+\begin{table}[htb]
+	\centering
+	\caption{Macro, micro average F1-score on negative class with Vietnamese dataset, unigram vs bigram vs bag-of-bigram. Unit: \%}
+	\begin{tabular}{|R{1.5cm}|R{2.1cm}|R{1.6cm}|R{1.6cm}|R{1.6cm}|}
+		\hline
+		 & & \textbf{LLVi-uni} & \textbf{LLVi-bi} & \textbf{LLVi-bb} \\
+		\hline
+		\multirow{2}{*}[-0.5em]{macro F1} & no segmentation & 47.19 & 56.10  & 60.56 \\
+		\cline{2-5}
+		 & with segmentation & 50.87 & 64.37  & \textbf{65.85}\\
+		\hline
+		\multirow{2}{*}[-0.5em]{micro F1} & no segmentation & 61.33 & 56.52 & \textbf{66.27} \\
+		\cline{2-5}
+		 & with segmentation & 61.93 & 61.53 & 60.59 \\
+		\hline
+	\end{tabular}
+	
+	\label{table:Table vi bibob}
+\end{table}
+Similar to English, using bigram and bag-of-bigram features make a huge improvement to the performance compared to using unigram feature only. 
+With segmentation combined, the lifelong learning using unigram feature improves significantly, while it does not have clear impact on lifelong learning with bigram and bag-of-bigram features.
+'cực\_kỳ tốt'(extremely good), 'khó chịu'(frustrating), 'rát da'(burning skin sensation), 'chẳng mê'(cannot love) are examples of how using bigram performs better.

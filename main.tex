@@ -1,0 +1,137 @@
+
+%%%%%%%%%%%%%%%%%%%%%%% file typeinst.tex %%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This is the LaTeX source for the instructions to authors using
+% the LaTeX document class 'llncs.cls' for contributions to
+% the Lecture Notes in Computer Sciences series.
+% http://www.springer.com/lncs       Springer Heidelberg 2006/05/04
+%
+% It may be used as a template for your own input - copy it
+% to a new file with a new name and use it as the basis
+% for your article.
+%
+% NB: the document class 'llncs' has its own and detailed documentation, see
+% ftp://ftp.springer.de/data/pubftp/pub/tex/latex/llncs/latex2e/llncsdoc.pdf
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[runningheads,a4paper]{llncs}
+
+\usepackage[T5]{fontenc}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amssymb}
+\setcounter{tocdepth}{3}
+\usepackage{graphicx}
+\usepackage{epstopdf}
+\usepackage{url}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption} 
+%\usepackage{amsmath}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+% \preto\tabular{\setcounter{magicrownumbers}{0}}
+% \newcounter{magicrownumbers}
+% \newcommand\rownumber{\stepcounter{magicrownumbers}\arabic{magicrownumbers}}
+\urldef{\mailsa}\path|{1212304,1212069}@student.hcmus.edu.vn, nqminh@fit.hcmus.edu.vn|
+%\bibliography{typeinst}
+%\urldef{\mailsa}\path|{alfred.hofmann, ursula.barth, ingrid.haas, frank.holzwarth,|
+%\urldef{\mailsb}\path|anna.kramer, leonie.kunz, christine.reiss, nicole.sator,|
+%\urldef{\mailsc}\path|erika.siebert-cole, peter.strasser, lncs}@springer.com|    
+% \newcommand{\keywords}[1]{\par\addvspace\baselineskip
+% \noindent\keywordname\enspace\ignorespaces#1}
+% \graphicspath{ {images/} }
+
+\begin{document}
+
+\mainmatter  % start of an individual contribution
+
+% first the title is needed
+\title{Lifelong learning for cross-domain Vietnamese sentiment classification}
+
+% a short form should be given in case it is too long for the running head
+\titlerunning{Lifelong learning for cross-domain Vietnamese sentiment classification}
+
+% the name(s) of the author(s) follow(s) next
+%
+% NB: Chinese authors should write their first names(s) in front of
+% their surnames. This ensures that the names appear correctly in
+% the running heads and the author index.
+%
+\author{Quang-Vinh Ha
+	\and Bao-Dai Nguyen-Hoang
+	\and Minh-Quoc Nghiem}
+\institute{Faculty of Information Technology\\
+	Ho Chi Minh City University of Science\\
+	227 Nguyen Van Cu St., Ward 4, District 5, Ho Chi Minh City, Vietnam\\
+\mailsa
+}
+
+%\thanks{Please note that the LNCS Editorial assumes that all authors have used
+%the western naming convention, with given names preceding surnames. This determines
+%the structure of the names in the running heads and the author index.}%
+
+%
+
+% (feature abused for this document to repeat the title also on left hand pages)
+
+% the affiliations are given next; don't give your e-mail address
+% unless you accept that it will be published
+
+%\mailsa\\
+%\mailsb\\
+%\mailsc\\
+%\url{http://www.springer.com/lncs}}
+
+%
+% NB: a more complex sample for affiliations and the mapping to the
+% corresponding authors can be found in the file "llncs.dem"
+% (search for the string "\mainmatter" where a contribution starts).
+% "llncs.dem" accompanies the document class "llncs.cls".
+%
+
+\toctitle{Lifelong learning for cross-domain Vietnamese sentiment classification}
+%\tocauthor{Authors' Instructions}
+\maketitle
+
+
+\begin{abstract}
+This paper proposes an improvement to lifelong learning for cross-domain sentiment classification.
+Lifelong learning is to retain knowledge from past learning tasks to improve the learning task on a new domain.
+In this paper, we will discuss how bigram and bag-of-bigram features integrated into a lifelong learning system can help improve the performance of sentiment classification on both Vietnamese and English.
+Also, pre-processing techniques specifically for our cross-domain, Vietnamese dataset will be discussed.
+Experimental results show that our method achieves improvements over prior systems and its potential for cross-domain sentiment classification.
+%Statistical machine learning techniques have achieved promising results for sentiment classification.
+%In the Internet age, it is essential to transfer the knowledge from the domain we learned to adapt an unfamiliar domain and still have a high accuracy of predicting if a user review is positive or negative.
+%lifelong learning had proved its performance in topic modeling and sentiment classification in English.
+%However, for low-resource language such as Vietnamese, there are many problems to deal with to get the similar performance.
+%This paper presents an empirical study on Vietnamese sentiment classification.
+%Our proposed method is based on lifelong learning but combined with black-list and segmentation techniques specifically for Vietnamese.
+%The results are promising, showing that the method is able to make relatively accurate predictions even when no labeled data is given.
+
+\keywords{sentiment classification; Vietnamese; supervised learning, lifelong learning}
+\end{abstract}
+
+\input{1-intro}
+
+\input{2-related}
+
+\input{3-method}
+
+\input{4-results}
+
+\input{5-conclusion}
+
+\input{6-acknowledgments}
+
+\bibliographystyle{splncs} 
+
+\bibliography{ref}
+
+\end{document}

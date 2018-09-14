@@ -1,0 +1,48 @@
+\section{Introduction}
+%
+%
+%
+
+%propose the use of bi-gram
+%contribution
+
+% RULE: Topic sentence at the beginning of the paragraph
+
+% OK: importance of sentiment analysis and sentiment classification, focus of this paper 
+The rapid growth of e-commerce and the Web age quickly makes the sentiment knowledge become an advantage to contribute more values to market predictions.
+Sentiment analysis remains a popular topic for research and developing sentiment-aware applications~\cite{Pang08opinionmining}.
+Sentiment classification, which is a subproblem of sentiment analysis task, is the task of classifying whether an evaluative text is expressing a positive, negative or neutral sentiment.
+In this paper, we focus on document-level binary sentiment classification, in which the sentiment is either positive or negative.
+
+% OK: Intro transfer learning, multi-domain classification, lifelong learning
+In recent years, most studies on sentiment classification adopt machine learning and statistical approaches~\cite{Liu12sentimentanalysis}.
+Such approaches hardly perform well on real-life data, which contains opinionated documents from domains different from the domain used to train the classifier.
+To overcome this limitation, lifelong learning~\cite{chen-ma-liu:2015:ACL-IJCNLP}, transfer learning~\cite{Pan:2010:STL:1850483.1850545}, self-taught learning~\cite{Raina:2007:SLT:1273496.1273592} and other domain adaptation techniques~\cite{Pan:2010:STL:1850483.1850545} were proposed.
+All mentioned methods is to transfer the knowledge gained from source domains to improve the learning task on the target domain.
+
+% lifelong learning, drawbacks: unigram --> Vietnamese
+Chen et al.~\cite{chen-ma-liu:2015:ACL-IJCNLP} proposed a novel approach of lifelong learning for sentiment classification, which is based on Naïve Bayesian framework and stochastic gradient descent.
+Although this approach could deal with cross-domain sentiment classification, it used the ``bag-of-words'' model and faces difficulties when represent the relationship between words.
+For example, the phrase ``have to'', which is a common phrase in the negative text (but much less important in positive text), cannot be taken advantage of with bag-of-words feature.
+This is especially true in isolated languages, such as Vietnamese, where words are not separated by white spaces.
+
+%Vietnamese, no domain adaptation, no transfer learning
+As a resource-poor language, Vietnamese has quite a few accomplishments in the field of sentiment classification.
+To the best of our knowledge, there is no study on Vietnamese cross-domain sentiment classification.
+There is also no suitable dataset with a reasonable amount of reviews and variance of products to apply lifelong learning on Vietnamese.
+
+%propose the use of bi-gram
+%contribution
+In this paper, we propose the use of bi-gram feature to lifelong learning approach on sentiment classification.
+Wang and Manning~\cite{wang-manning:2012:ACL2012short} proved that adding bi-grams improves sentiment classification performance because they can capture modified verbs and nouns.
+We also created a dataset for Vietnamese cross-domain sentiment classification by collecting more than 15,000 reviews from the e-commerce website Tiki.vn~\footnote{http://tiki.vn/} with 17 distinctive domains.
+We proposed combining the bi-gram feature with the Naïve Bayesian optimization framework.
+The proposed method has leveraged the phrases that contain sentiment better than that of Chen et al.~\cite{chen-ma-liu:2015:ACL-IJCNLP} and outperforms other methods in both Vietnamese and English datasets.
+
+% SHORT thêm reading guide
+The remainder of this paper is organized as follows.
+Section 2 provides a brief overview of the background and related work.
+Section 3 presents our method including how we add bi-gram and bag-of-bi-gram features to the lifelong learning, and how we processed the raw reviews of the Vietnamese dataset to improve the performance.
+Section 4 describes the experimental setup and results.
+Section 5 concludes the paper and points to avenues for future work.
+

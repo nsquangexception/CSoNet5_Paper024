@@ -1,0 +1,74 @@
+@InProceedings{chen-ma-liu:2015:ACL-IJCNLP,
+  author    = {Chen, Zhiyuan  and  Ma, Nianzu  and  Liu, Bing},
+  title     = {Lifelong Learning for Sentiment Classification},
+  booktitle = {Proceedings of the 53rd Annual Meeting of the Association for Computational Linguistics and the 7th International Joint Conference on Natural Language Processing (Volume 2: Short Papers)},
+  month     = {July},
+  year      = {2015},
+  address   = {Beijing, China},
+  publisher = {Association for Computational Linguistics},
+  pages     = {750--756},
+  url       = {http://www.aclweb.org/anthology/P15-2123}
+}
+
+@InProceedings{wang-manning:2012:ACL2012short,
+  author    = {Wang, Sida  and  Manning, Christopher},
+  title     = {Baselines and Bigrams: Simple, Good Sentiment and Topic Classification},
+  booktitle = {Proceedings of the 50th Annual Meeting of the Association for Computational Linguistics (Volume 2: Short Papers)},
+  month     = {July},
+  year      = {2012},
+  address   = {Jeju Island, Korea},
+  publisher = {Association for Computational Linguistics},
+  pages     = {90--94},
+  url       = {http://www.aclweb.org/anthology/P12-2018}
+}
+@InProceedings{DDien-VThuy:2006,
+	author={Dinh Dien and Vu Thuy},
+	booktitle={Research, Innovation and Vision for the Future, 2006 International Conference on}, 
+	title={A maximum entropy approach for vietnamese word segmentation}, 
+	year={2006},
+	pages={248-253},
+	keywords={Dictionaries;Entropy;Geographic Information Systems;Natural language processing;Natural languages;Neural networks;Particle separators;Statistics;Tagging;Transducers},
+	doi={10.1109/RIVF.2006.1696447},
+	month={Feb}
+}
+@InProceedings{blitzer-dredze-pereira:2007:ACLMain,
+	author    = {Blitzer, John  and  Dredze, Mark  and  Pereira, Fernando},
+	title     = {Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification},
+	booktitle = {Proceedings of the 45th Annual Meeting of the Association of Computational Linguistics},
+	month     = {June},
+	year      = {2007},
+	address   = {Prague, Czech Republic},
+	publisher = {Association for Computational Linguistics},
+	pages     = {440--447},
+	url       = {http://www.aclweb.org/anthology/P07-1056}
+}
+@InProceedings{pang-lee-vaithyanathan:2002:EMNLP02,
+	author    = {Bo Pang  and  Lillian Lee  and  Shivakumar Vaithyanathan},
+	title     = {Thumbs up? Sentiment Classification using Machine Learning Techniques},
+	booktitle = {Proceedings of the 2002 Conference on Empirical Methods in Natural Language Processing},
+	month     = {July},
+	year      = {2002},
+	publisher = {Association for Computational Linguistics},
+	pages     = {79--86},
+	url       = {http://www.aclweb.org/anthology/W02-1011},
+	doi       = {10.3115/1118693.1118704}
+}
+@MISC{Liu12sentimentanalysis,
+	author = {Bing Liu},
+	title = { Sentiment Analysis and Opinion Mining},
+	year = {2012}
+}
+@MISC{Pang08opinionmining,
+	author = {Bo Pang and Lillian Lee},
+	title = {Opinion Mining and Sentiment Analysis},
+	year = {2008}
+}
+@INPROCEEDINGS{Duyen-Bach:2014, 
+	author={N. T. Duyen and N. X. Bach and T. M. Phuong}, 
+	booktitle={Advanced Technologies for Communications (ATC), 2014 International Conference on}, 
+	title={An empirical study on sentiment analysis for Vietnamese}, 
+	year={2014}, 
+	pages={309-314}, 
+	keywords={learning (artificial intelligence);natural language processing;pattern classification;Vietnamese;annotated corpus;hotel reviews;learning model;linguistics feature aspects;machine learning;sentiment analysis;sentiment classification;Accuracy;Entropy;Feature extraction;Learning systems;Sentiment analysis;Support vector machines;Training;Maximum Entropy Models;Naive Bayes;Sentiment Analysis;Support Vector Machines}, 
+	doi={10.1109/ATC.2014.7043403}, 
+	month={Oct},}

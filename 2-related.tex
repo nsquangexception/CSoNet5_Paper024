@@ -1,0 +1,23 @@
+%NOTE: 2 tac gia: A and B~\cite{}
+% 3 tac gia tro len: A et al.~\cite{}
+% Khong de nam, vd nhu vay la ko duoc: A 2015~\cite{}
+% Neu su dung thi` present thi du`ng present luon, neu du`ng past thi du`ng past luon
+
+\section{Related Work}
+%Vietnamese Sentiment classification, lifelong learning, 
+Our work is related to lifelong learning, multi-task learning, transfer learning and domain adaptation.
+Chen and Liu have exploited different types of knowledge for lifelong learning on mining topics in documents and topic modeling~\cite{chen2014mining,icml2014c2_chenf14}.
+Chen and Liu~\cite{chen-ma-liu:2015:ACL-IJCNLP}, in their other work, also proposed the first lifelong learning approach for sentiment classification.
+Likewise, Ruvolo and Eaton~\cite{ruvolo2013scalable} developed a method for online multi-task learning in the lifelong learning setting, which maintains a sparsely shared basis for all task models.
+About domain adaptation, most of the work can be divided into two groups: supervised (Finkel and Manning 2009~\cite{Finkel:2009:HBD:1620754.1620842}, Chen et al. 2011~\cite{chen2011co}) and semi-supervised (Kumar et al. 2010~\cite{kumar2010co}, Huang and Yates 2010~\cite{huang2010exploring}).
+
+There are also many previous works on transfer learning and domain adaptation for sentiment classification.
+Yang et al.~\cite{yang2006knowledge} proposed an approach based on feature-selection for cross-domain sentence-level classification.
+Other approaches include structural correspondence learning (Blitzer et al.~\cite{blitzer2007biographies}), spectral feature alignment algorithm (Pan et al. 2010~\cite{pan2010cross}), CLF (Li and Zong 2008~\cite{li2008multi}).
+Similar methods can be found in the work of Liu~\cite{Liu12sentimentanalysis}.
+%there must be something wrong with other approaches
+
+In the field of sentiment analysis for Vietnamese, Duyen et al.~\cite{Duyen-Bach:2014} has published an empirical study which compared the use of Naïve Bayes, MEM and SVM with hotel reviews.
+Also, using the corpus from Duyen, Bach et al.~\cite{Bach2015322} proposed the use of user-ratings for the task.
+Term feature selection approach was investigated by Tran et al. 2011~\cite{zhang2011information}, while Kieu and Pham~\cite{kieu2010sentiment} investigated a rule-based system for Vietnamese sentiment classification.
+As that being said, to the best of our knowledge, there is no previous work on domain adaptation or lifelong learning as well as a appropriate dataset for Vietnamese (with a reasonable amount of reviews and variance of products).

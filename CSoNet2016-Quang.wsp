@@ -1,0 +1,11 @@
+[main]
+.\main.tex
+
+[texfiles]
+.\ref.bib
+.\1-intro.tex
+.\2-related.tex
+.\3-method.tex
+.\4-results.tex
+.\5-conclusion.tex
+
